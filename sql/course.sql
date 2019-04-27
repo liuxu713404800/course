@@ -11,7 +11,7 @@
  Target Server Version : 50725
  File Encoding         : 65001
 
- Date: 27/04/2019 16:14:47
+ Date: 27/04/2019 16:51:33
 */
 
 SET NAMES utf8mb4;
@@ -34,6 +34,25 @@ CREATE TABLE `lesson`  (
 -- Records of lesson
 -- ----------------------------
 INSERT INTO `lesson` VALUES (1, '测试课程', 'default-icon', 1, NULL);
+
+-- ----------------------------
+-- Table structure for music
+-- ----------------------------
+DROP TABLE IF EXISTS `music`;
+CREATE TABLE `music`  (
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '背景音乐名称',
+  `page_id` int(10) NOT NULL COMMENT '所属的章节',
+  `lesson_id` int(10) NOT NULL COMMENT '所属课程',
+  `repeat` tinyint(1) NOT NULL COMMENT '循环类型，0：不播放，1：一次，2：循环',
+  `enable` tinyint(1) NOT NULL DEFAULT 1 COMMENT '是否可用',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of music
+-- ----------------------------
+INSERT INTO `music` VALUES (1, '1.mp3', 1, 1, 1, 1);
 
 -- ----------------------------
 -- Table structure for page

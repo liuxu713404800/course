@@ -30,6 +30,8 @@ public class LessonController extends BaseController{
     private VideoService videoService = null;
     @Resource
     private VoiceService voiceService = null;
+    @Resource
+    private MusicService musicService = null;
 
 
     @RequestMapping("/media/list")
@@ -87,10 +89,12 @@ public class LessonController extends BaseController{
         String basePagePath = "/course-resouces/lesson-" + lessonId + "/pages/";
         String baseVoicePath = "/course-resouces/lesson-" + lessonId + "/voices/";
         String baseVideoPath = "/course-resouces/lesson-" + lessonId + "/videos/";
+        String baseMusicPath = "/course-resouces/lesson-" + lessonId + "/music/";
 
         List pageList = pageService.findList(currentLesson);
         List voiceList = voiceService.findList(currentLesson);
         List videoList = videoService.findList(currentLesson);
+        List musicList = musicService.findList(currentLesson);
 
         ArrayList ret = new ArrayList<TreeMap>();
         for (Object page : pageList) {
@@ -117,6 +121,16 @@ public class LessonController extends BaseController{
                 }
             }
             pageMap.put("audio", voices);
+
+            for (Object music : musicList) {
+                Music currentMusic = (Music) music;
+                if (currentMusic.getPageId() == currentPage.getId()) {
+                    Map musicMap = new HashMap();
+                    musicMap.put("audio", baseMusicPath + currentMusic.getName());
+                    musicMap.put("repeat", currentMusic.getRepeat() == 2 ? -1 : currentMusic.getRepeat());
+                    pageMap.put("back", musicMap);
+                }
+            }
             ret.add(pageMap);
         }
 

@@ -25,7 +25,8 @@ public class Progress {
         return lessonId;
     }
 
-    public void setLessonId(Integer lessonId) {
+    // 这里完成映射
+    public void setLesson_id(Integer lessonId) {
         this.lessonId = lessonId;
     }
 }

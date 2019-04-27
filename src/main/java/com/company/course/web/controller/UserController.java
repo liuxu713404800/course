@@ -7,6 +7,7 @@ import com.company.course.web.service.TokenService;
 import com.company.course.web.service.UserService;
 import com.company.course.web.utils.StringUtils;
 import com.company.course.web.utils.TimeUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +26,9 @@ public class UserController extends BaseController {
     private UserService userService = null;
     @Resource
     private TokenService tokenService = null;
+
+    @Value("${base-file-folder}")
+    public String baseFilePath;
 
     @RequestMapping("/user/{id}")
     ApiResult<User> findById(@PathVariable("id") Integer id){

@@ -3,8 +3,6 @@ package com.company.course.web.entity;
 public class Page {
     private Integer id;
     private String name;
-    private Integer type;
-    private String uri;
     private Integer enable;
     private Integer lessionId;
     private String voiceOrder;
@@ -25,22 +23,6 @@ public class Page {
         this.name = name;
     }
 
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public String getUri() {
-        return uri;
-    }
-
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
-
     public Integer getEnable() {
         return enable;
     }
@@ -53,7 +35,7 @@ public class Page {
         return lessionId;
     }
 
-    public void setLessionId(Integer lessionId) {
+    public void setLession_id(Integer lessionId) {
         this.lessionId = lessionId;
     }
 

@@ -1,11 +1,19 @@
 package com.company.course.web.entity;
 
-public class Voice {
+public class Video {
     private Integer id;
     private String name;
     private Integer enable;
     private Integer pageId;
     private Integer lessonId;
+
+    public Integer getLessonId() {
+        return lessonId;
+    }
+
+    public void setLesson_id(Integer lessonId) {
+        this.lessonId = lessonId;
+    }
 
     public Integer getId() {
         return id;
@@ -37,13 +45,5 @@ public class Voice {
 
     public void setPage_id(Integer pageId) {
         this.pageId = pageId;
-    }
-
-    public Integer getLessonId() {
-        return lessonId;
-    }
-
-    public void setLesson_id(Integer lessonId) {
-        this.lessonId = lessonId;
     }
 }
